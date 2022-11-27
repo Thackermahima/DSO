@@ -8,10 +8,10 @@ import UserProfile from './component/pages/UserProfile';
 function App() {
   return (
     <div className="App">
-      {/* <Home/> */}
+      <Home/>
       {/* <AskQuestion/> */}
       {/* <QuestionDetail/> */}
-      <UserProfile/>
+      {/* <UserProfile/> */}
     </div>
   );
 }

@@ -1,32 +1,49 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEnvelope, faHouse } from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react';
 
 export default function Home() {
+
+  const ethers = require("ethers");
+  const [domain,setDomain]=useState("");
+
+  async function requestAccount() {
+    if (window.ethereum) {
+      console.log('detected');
+      try {
+        const accounts = await window.ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        
+        getDomain(accounts[0]);
+      } catch (error) {
+        console.log("there is an error");
+      }
+    } else {
+      console.log('');
+    }
+  }
+
+async function getDomain (addr) {
+    const provider = new ethers.providers.JsonRpcProvider(
+      "https://goerli.infura.io/v3/dc074125a5a84daca1f4f33b0daf6c4f"
+    );
+console.log('getting domain...');
+   
+    const name = await provider.lookupAddress(addr)
+    // const balance = await provider.getBalance("bang.eth");
+    setDomain(name);
+    console.log(name, 'name')
+  };
+
+
   return (
     <>
     <div>
 
     <>
-  {/* start cssload-loader */}
-  {/* <div id="preloader">
-    <div className="loader">
-      <svg className="spinner" viewBox="0 0 50 50">
-        <circle
-          className="path"
-          cx={25}
-          cy={25}
-          r={20}
-          fill="none"
-          strokeWidth={5}
-        />
-      </svg>
-    </div>
-  </div> */}
-  {/* end cssload-loader */}
-  {/*======================================
-  START HEADER AREA
-    ======================================*/}
+
   <header className="header-area bg-white">
     <div className="container">
       <div className="row align-items-center">
@@ -83,135 +100,13 @@ export default function Home() {
                   <a href="#">
                     pages <i className="la la-angle-down fs-11" />
                   </a>
-                  {/* <div className="dropdown-menu-item mega-menu">
-                    <ul className="row">
-                      <li className="col-lg-3">
-                        <a href="user-profile.html">user profile</a>
-                        <a href="notifications.html">Notifications</a>
-                        <a href="referrals.html">Referrals</a>
-                        <a href="setting.html">settings</a>
-                        <a href="ask-question.html">ask question</a>
-                        <a href="question-details.html">question details</a>
-                        <a href="about.html">about</a>
-                        <a href="revisions.html">revisions</a>
-                        <a href="category.html">category</a>
-                        <a href="companies.html">companies</a>
-                        <a href="company-details.html">company details</a>
-                      </li>
-                      <li className="col-lg-3">
-                        <a href="careers.html">careers</a>
-                        <a href="career-details.html">career details</a>
-                        <a href="contact.html">contact</a>
-                        <a href="faq.html">FAQs</a>
-                        <a href="pricing-table.html">pricing tables</a>
-                        <a href="error.html">page 404</a>
-                        <a href="terms-and-conditions.html">
-                          Terms &amp; conditions
-                        </a>
-                        <a href="privacy-policy.html">privacy policy</a>
-                        <a href="cart.html">cart</a>
-                        <a href="talent.html">talent</a>
-                        <a href="advertising.html">advertising</a>
-                      </li>
-                      <li className="col-lg-3">
-                        <a href="free-demo.html">free demo</a>
-                        <a href="checkout.html">checkout</a>
-                        <a href="wishlist.html">wishlist</a>
-                        <a href="login.html">login</a>
-                        <a href="login-2.html">login 2</a>
-                        <a href="signup.html">sign up</a>
-                        <a href="signup-2.html">sign up 2</a>
-                        <a href="recover-password.html">recover password</a>
-                        <a href="questions-layout-2.html">
-                          questions layout 2{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="questions-full-width.html">
-                          questions full-width{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="questions-left-sidebar.html">
-                          questions left sidebar{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                      </li>
-                      <li className="col-lg-3">
-                        <a href="questions-right-sidebar.html">
-                          questions right sidebar{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="user-list.html">
-                          user list{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="category-list.html">
-                          category list{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="tags-list.html">
-                          tags list{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="add-post.html">
-                          add post{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="badges-list.html">
-                          Badges list{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="job-list.html">
-                          job list{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="error-2.html">
-                          page 404 2{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div> */}
+               
                 </li>
                 <li>
                   <a href="#">
                     blog <i className="la la-angle-down fs-11" />
                   </a>
-                  {/* <ul className="dropdown-menu-item">
-                    <li>
-                      <a href="blog-grid-no-sidebar.html">grid no sidebar</a>
-                    </li>
-                    <li>
-                      <a href="blog-left-sidebar.html">blog left sidebar</a>
-                    </li>
-                    <li>
-                      <a href="blog-right-sidebar.html">blog right sidebar</a>
-                    </li>
-                    <li>
-                      <a href="blog-single.html">blog detail</a>
-                    </li>
-                  </ul> */}
+                
                 </li>
               </ul>
               {/* end ul */}
@@ -231,22 +126,22 @@ export default function Home() {
               </div>
             </form>
             <div className="nav-right-button">
-              <a
+              <a  onClick={requestAccount} 
                 href="#"
                 className="btn theme-btn theme-btn-outline mr-2"
                 data-toggle="modal"
                 data-target="#loginModal"
               >
-                <i className="la la-sign-in mr-1" /> Login
+                <i className="la la-sign-in mr-1" /> {domain ? domain : 'login with ENS'}
               </a>
-              <a
+              {/* <a
                 href="#"
                 className="btn theme-btn"
                 data-toggle="modal"
                 data-target="#signUpModal"
               >
                 <i className="la la-user mr-1" /> Sign up
-              </a>
+              </a> */}
             </div>
             {/* end nav-right-button */}
           </div>
@@ -5856,7 +5751,7 @@ export default function Home() {
   </div>
   {/* end back to top */}
   {/* Modal */}
-  <div
+  {/* <div
     className="modal fade modal-container login-form"
     id="loginModal"
     tabIndex={-1}
@@ -5987,7 +5882,7 @@ export default function Home() {
         </div>
       </div>
     </div>
-  </div>
+  </div> */}
   {/* Modal */}
   <div
     className="modal fade modal-container signup-form"
