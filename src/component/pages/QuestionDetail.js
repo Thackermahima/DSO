@@ -1,390 +1,15 @@
 import React from 'react'
+import Footer from './Footer'
+import Header from './Header'
+import RelatedQuestion from './HomePage/RelatedQuestion'
 
 
 export default function QuestionDetail() {
     return(
         <>
         <>
-  {/* <div id="preloader">
-    <div className="loader">
-      <svg className="spinner" viewBox="0 0 50 50">
-        <circle
-          className="path"
-          cx={25}
-          cy={25}
-          r={20}
-          fill="none"
-          strokeWidth={5}
-        />
-      </svg>
-    </div>
-  </div> */}
-  {/* end cssload-loader */}
-  {/*======================================
-  START HEADER AREA
-    ======================================*/}
-  <header className="header-area bg-white border-bottom border-bottom-gray">
-    <div className="container">
-      <div className="row align-items-center">
-        <div className="col-lg-2">
-          <div className="logo-box">
-            <a href="index.html" className="logo">
-              <img src="images/logo-black.png" alt="logo" />
-            </a>
-            <div className="user-action">
-              <div
-                className="search-menu-toggle icon-element icon-element-xs shadow-sm mr-1"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="Search"
-              >
-                <i className="la la-search" />
-              </div>
-              <div
-                className="off-canvas-menu-toggle icon-element icon-element-xs shadow-sm"
-                data-toggle="tooltip"
-                data-placement="top"
-                title="Main menu"
-              >
-                <i className="la la-bars" />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* end col-lg-2 */}
-        <div className="col-lg-10">
-          <div className="menu-wrapper border-left border-left-gray pl-4 justify-content-end">
-            <nav className="menu-bar mr-auto">
-              <ul>
-                <li>
-                  <a href="#">
-                    Home <i className="la la-angle-down fs-11" />
-                  </a>
-                  <ul className="dropdown-menu-item">
-                    <li>
-                      <a href="index.html">Home - landing</a>
-                    </li>
-                    <li>
-                      <a href="home-2.html">Home - main</a>
-                    </li>
-                    <li>
-                      <a href="home-3.html">
-                        Home - layout 2{" "}
-                        <span className="badge bg-warning text-white">New</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="is-mega-menu">
-                  <a href="#">
-                    pages <i className="la la-angle-down fs-11" />
-                  </a>
-                  <div className="dropdown-menu-item mega-menu">
-                    <ul className="row">
-                      <li className="col-lg-3">
-                        <a href="user-profile.html">user profile</a>
-                        <a href="notifications.html">Notifications</a>
-                        <a href="referrals.html">Referrals</a>
-                        <a href="setting.html">settings</a>
-                        <a href="ask-question.html">ask question</a>
-                        <a href="question-details.html">question details</a>
-                        <a href="about.html">about</a>
-                        <a href="revisions.html">revisions</a>
-                        <a href="category.html">category</a>
-                        <a href="companies.html">companies</a>
-                      </li>
-                      <li className="col-lg-3">
-                        <a href="company-details.html">company details</a>
-                        <a href="careers.html">careers</a>
-                        <a href="career-details.html">career details</a>
-                        <a href="contact.html">contact</a>
-                        <a href="faq.html">FAQs</a>
-                        <a href="pricing-table.html">pricing tables</a>
-                        <a href="error.html">page 404</a>
-                        <a href="terms-and-conditions.html">
-                          Terms &amp; conditions
-                        </a>
-                        <a href="privacy-policy.html">privacy policy</a>
-                        <a href="cart.html">cart</a>
-                      </li>
-                      <li className="col-lg-3">
-                        <a href="talent.html">talent</a>
-                        <a href="advertising.html">advertising</a>
-                        <a href="free-demo.html">free demo</a>
-                        <a href="checkout.html">checkout</a>
-                        <a href="wishlist.html">wishlist</a>
-                        <a href="login.html">login</a>
-                        <a href="login-2.html">login 2</a>
-                        <a href="signup.html">sign up</a>
-                        <a href="signup-2.html">sign up 2</a>
-                        <a href="recover-password.html">recover password</a>
-                      </li>
-                      <li className="col-lg-3">
-                        <a href="questions-layout-2.html">
-                          questions layout 2{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="questions-full-width.html">
-                          questions full-width{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="questions-left-sidebar.html">
-                          questions left sidebar{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="questions-right-sidebar.html">
-                          questions right sidebar{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="user-list.html">
-                          user list{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="category-list.html">
-                          category list{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="tags-list.html">
-                          tags list{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="add-post.html">
-                          add post{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="badges-list.html">
-                          Badges list{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                        <a href="job-list.html">
-                          job list{" "}
-                          <span className="badge bg-warning text-white">
-                            New
-                          </span>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </li>
-                <li>
-                  <a href="#">
-                    blog <i className="la la-angle-down fs-11" />
-                  </a>
-                  <ul className="dropdown-menu-item">
-                    <li>
-                      <a href="blog-grid-no-sidebar.html">grid no sidebar</a>
-                    </li>
-                    <li>
-                      <a href="blog-left-sidebar.html">blog left sidebar</a>
-                    </li>
-                    <li>
-                      <a href="blog-right-sidebar.html">blog right sidebar</a>
-                    </li>
-                    <li>
-                      <a href="blog-single.html">blog detail</a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-              {/* end ul */}
-            </nav>
-            {/* end main-menu */}
-            <form method="post" className="mr-4">
-              <div className="form-group mb-0">
-                <input
-                  className="form-control form--control form--control-bg-gray"
-                  type="text"
-                  name="search"
-                  placeholder="Type your search words..."
-                />
-                <button className="form-btn" type="button">
-                  <i className="la la-search" />
-                </button>
-              </div>
-            </form>
-            <div className="nav-right-button">
-              <a
-                href="login.html"
-                className="btn theme-btn theme-btn-outline mr-2"
-              >
-                <i className="la la-sign-in mr-1" /> Login
-              </a>
-              <a href="signup.html" className="btn theme-btn">
-                <i className="la la-user mr-1" /> Sign up
-              </a>
-            </div>
-            {/* end nav-right-button */}
-          </div>
-          {/* end menu-wrapper */}
-        </div>
-        {/* end col-lg-10 */}
-      </div>
-      {/* end row */}
-    </div>
-    {/* end container */}
-    <div className="off-canvas-menu custom-scrollbar-styled">
-      <div
-        className="off-canvas-menu-close icon-element icon-element-sm shadow-sm"
-        data-toggle="tooltip"
-        data-placement="left"
-        title="Close menu"
-      >
-        <i className="la la-times" />
-      </div>
-      {/* end off-canvas-menu-close */}
-      <ul className="generic-list-item off-canvas-menu-list pt-90px">
-        <li>
-          <a href="#">Home</a>
-          <ul className="sub-menu">
-            <li>
-              <a href="index.html">Home - landing</a>
-            </li>
-            <li>
-              <a href="home-2.html">Home - main</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">Pages</a>
-          <ul className="sub-menu">
-            <li>
-              <a href="user-profile.html">user profile</a>
-            </li>
-            <li>
-              <a href="notifications.html">Notifications</a>
-            </li>
-            <li>
-              <a href="referrals.html">Referrals</a>
-            </li>
-            <li>
-              <a href="setting.html">settings</a>
-            </li>
-            <li>
-              <a href="ask-question.html">ask question</a>
-            </li>
-            <li>
-              <a href="question-details.html">question details</a>
-            </li>
-            <li>
-              <a href="about.html">about</a>
-            </li>
-            <li>
-              <a href="revisions.html">revisions</a>
-            </li>
-            <li>
-              <a href="category.html">category</a>
-            </li>
-            <li>
-              <a href="companies.html">companies</a>
-            </li>
-            <li>
-              <a href="company-details.html">company details</a>
-            </li>
-            <li>
-              <a href="careers.html">careers</a>
-            </li>
-            <li>
-              <a href="career-details.html">career details</a>
-            </li>
-            <li>
-              <a href="contact.html">contact</a>
-            </li>
-            <li>
-              <a href="faq.html">FAQs</a>
-            </li>
-            <li>
-              <a href="pricing-table.html">pricing tables</a>
-            </li>
-            <li>
-              <a href="error.html">page 404</a>
-            </li>
-            <li>
-              <a href="terms-and-conditions.html">Terms &amp; conditions</a>
-            </li>
-            <li>
-              <a href="privacy-policy.html">privacy policy</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">blog</a>
-          <ul className="sub-menu">
-            <li>
-              <a href="blog-grid-no-sidebar.html">grid no sidebar</a>
-            </li>
-            <li>
-              <a href="blog-left-sidebar.html">blog left sidebar</a>
-            </li>
-            <li>
-              <a href="blog-right-sidebar.html">blog right sidebar</a>
-            </li>
-            <li>
-              <a href="blog-single.html">blog detail</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-      <div className="off-canvas-btn-box px-4 pt-5 text-center">
-        <a
-          href="#"
-          className="btn theme-btn theme-btn-sm theme-btn-outline"
-          data-toggle="modal"
-          data-target="#loginModal"
-        >
-          <i className="la la-sign-in mr-1" /> Login
-        </a>
-        <span className="fs-15 fw-medium d-inline-block mx-2">Or</span>
-        <a
-          href="#"
-          className="btn theme-btn theme-btn-sm"
-          data-toggle="modal"
-          data-target="#signUpModal"
-        >
-          <i className="la la-plus mr-1" /> Sign up
-        </a>
-      </div>
-    </div>
-    {/* end off-canvas-menu */}
-    <div className="mobile-search-form">
-      <div className="d-flex align-items-center">
-        <form method="post" className="flex-grow-1 mr-3">
-          <div className="form-group mb-0">
-            <input
-              className="form-control form--control pl-40px"
-              type="text"
-              name="search"
-              placeholder="Type your search words..."
-            />
-            <span className="la la-search input-icon" />
-          </div>
-        </form>
-        <div className="search-bar-close icon-element icon-element-sm shadow-sm">
-          <i className="la la-times" />
-        </div>
-        {/* end off-canvas-menu-close */}
-      </div>
-    </div>
-    {/* end mobile-search-form */}
-    <div className="body-overlay" />
-  </header>
+ 
+ <Header/>
   {/* end header-area */}
   {/*======================================
   END HEADER AREA
@@ -466,7 +91,7 @@ export default function QuestionDetail() {
         {/* end col-lg-9 */}
         <div className="col-lg-3">
           <div className="hero-btn-box text-right py-3">
-            <a href="ask-question.html" className="btn theme-btn">
+            <a style={{color:"white"}}href="ask-question.html" className="btn theme-btn">
               Ask a Question
             </a>
           </div>
@@ -697,13 +322,11 @@ export default function QuestionDetail() {
                         </div>
                       </div>
                     </div>
-                    {/* btn-group */}
                     <a href="#" className="btn">
                       Edit
                     </a>
                     <button className="btn">Follow</button>
                   </div>
-                  {/* end post-menu */}
                   <div className="media media-card user-media owner align-items-center">
                     <a href="user-profile.html" className="media-img d-block">
                       <img src="images/img3.jpg" alt="avatar" />
@@ -735,7 +358,6 @@ export default function QuestionDetail() {
                       </small>
                     </div>
                   </div>
-                  {/* end media */}
                   <div className="media media-card user-media align-items-center">
                     <a href="user-profile.html" className="media-img d-block">
                       <img src="images/img4.jpg" alt="avatar" />
@@ -769,9 +391,7 @@ export default function QuestionDetail() {
                       </a>
                     </div>
                   </div>
-                  {/* end media */}
                 </div>
-                {/* end question-post-user-action */}
                 <div className="comments-wrap">
                   <ul className="comments-list">
                     <li>
@@ -899,151 +519,6 @@ export default function QuestionDetail() {
                       </div>
                     </li>
                   </ul>
-                  <div className="comment-form">
-                    <div className="comment-link-wrap text-center">
-                      <a
-                        className="collapse-btn comment-link"
-                        data-toggle="collapse"
-                        href="#addCommentCollapse"
-                        role="button"
-                        aria-expanded="false"
-                        aria-controls="addCommentCollapse"
-                        title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."
-                      >
-                        Add a comment
-                      </a>
-                    </div>
-                    <div
-                      className="collapse border-top border-top-gray mt-2 pt-3"
-                      id="addCommentCollapse"
-                    >
-                      <form method="post" className="row pb-3">
-                        <div className="col-lg-12">
-                          <h4 className="fs-16 pb-2">Leave a Comment</h4>
-                          <div className="divider mb-2">
-                            <span />
-                          </div>
-                        </div>
-                        {/* end col-lg-12 */}
-                        <div className="col-lg-6">
-                          <div className="input-box">
-                            <label className="fs-13 text-black lh-20">
-                              Name
-                            </label>
-                            <div className="form-group">
-                              <input
-                                className="form-control form--control form-control-sm fs-13"
-                                type="text"
-                                name="text"
-                                placeholder="Your name"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        {/* end col-lg-6 */}
-                        <div className="col-lg-6">
-                          <div className="input-box">
-                            <label className="fs-13 text-black lh-20">
-                              Email (Address never made public)
-                            </label>
-                            <div className="form-group">
-                              <input
-                                className="form-control form--control form-control-sm fs-13"
-                                type="text"
-                                name="text"
-                                placeholder="Your email"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        {/* end col-lg-6 */}
-                        <div className="col-lg-12">
-                          <div className="input-box">
-                            <label className="fs-13 text-black lh-20">
-                              Website
-                            </label>
-                            <div className="form-group">
-                              <input
-                                className="form-control form--control form-control-sm fs-13"
-                                type="text"
-                                name="text"
-                                placeholder="Website link"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        {/* end col-lg-12 */}
-                        <div className="col-lg-12">
-                          <div className="input-box">
-                            <label className="fs-13 text-black lh-20">
-                              Message
-                            </label>
-                            <div className="form-group">
-                              <textarea
-                                className="form-control form--control form-control-sm fs-13"
-                                name="message"
-                                rows={5}
-                                placeholder="Your comment here..."
-                                defaultValue={""}
-                              />
-                              <div className="d-flex flex-wrap align-items-center pt-2">
-                                <div className="badge bg-gray border border-gray mr-3 fw-regular fs-13">
-                                  [named hyperlinks] (https://example.com)
-                                </div>
-                                <div className="mr-3 fw-bold fs-13">
-                                  **bold**
-                                </div>
-                                <div className="mr-3 font-italic fs-13">
-                                  _italic_
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {/* end col-lg-12 */}
-                        <div className="col-lg-12">
-                          <div className="input-box d-flex flex-wrap align-items-center justify-content-between">
-                            <div>
-                              <div className="custom-control custom-checkbox fs-13">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="getNewComments"
-                                />
-                                <label
-                                  className="custom-control-label custom--control-label"
-                                  htmlFor="getNewComments"
-                                >
-                                  Notify me of new comments vai email.
-                                </label>
-                              </div>
-                              <div className="custom-control custom-checkbox fs-13">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="getNewPosts"
-                                />
-                                <label
-                                  className="custom-control-label custom--control-label"
-                                  htmlFor="getNewPosts"
-                                >
-                                  Notify me of new posts vai email.
-                                </label>
-                              </div>
-                            </div>
-                            <button
-                              className="btn theme-btn theme-btn-sm theme-btn-outline theme-btn-outline-gray"
-                              type="submit"
-                            >
-                              Post Comment
-                            </button>
-                          </div>
-                        </div>
-                        {/* end col-lg-12 */}
-                      </form>
-                    </div>
-                    {/* end collapse */}
-                  </div>
                 </div>
                 {/* end comments-wrap */}
               </div>
@@ -1390,155 +865,8 @@ export default function QuestionDetail() {
                       </div>
                     </li>
                   </ul>
-                  <div className="comment-form">
-                    <div className="comment-link-wrap text-center">
-                      <a
-                        className="collapse-btn comment-link"
-                        data-toggle="collapse"
-                        href="#addCommentCollapseTwo"
-                        role="button"
-                        aria-expanded="false"
-                        aria-controls="addCommentCollapseTwo"
-                        title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments."
-                      >
-                        Add a comment
-                      </a>
-                    </div>
-                    <div
-                      className="collapse border-top border-top-gray mt-2 pt-3"
-                      id="addCommentCollapseTwo"
-                    >
-                      <form method="post" className="row pb-3">
-                        <div className="col-lg-12">
-                          <h4 className="fs-16 pb-2">Leave a Comment</h4>
-                          <div className="divider mb-2">
-                            <span />
-                          </div>
-                        </div>
-                        {/* end col-lg-12 */}
-                        <div className="col-lg-6">
-                          <div className="input-box">
-                            <label className="fs-13 text-black lh-20">
-                              Name
-                            </label>
-                            <div className="form-group">
-                              <input
-                                className="form-control form--control form-control-sm fs-13"
-                                type="text"
-                                name="text"
-                                placeholder="Your name"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        {/* end col-lg-6 */}
-                        <div className="col-lg-6">
-                          <div className="input-box">
-                            <label className="fs-13 text-black lh-20">
-                              Email (Address never made public)
-                            </label>
-                            <div className="form-group">
-                              <input
-                                className="form-control form--control form-control-sm fs-13"
-                                type="text"
-                                name="text"
-                                placeholder="Your email"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        {/* end col-lg-6 */}
-                        <div className="col-lg-12">
-                          <div className="input-box">
-                            <label className="fs-13 text-black lh-20">
-                              Website
-                            </label>
-                            <div className="form-group">
-                              <input
-                                className="form-control form--control form-control-sm fs-13"
-                                type="text"
-                                name="text"
-                                placeholder="Website link"
-                              />
-                            </div>
-                          </div>
-                        </div>
-                        {/* end col-lg-12 */}
-                        <div className="col-lg-12">
-                          <div className="input-box">
-                            <label className="fs-13 text-black lh-20">
-                              Message
-                            </label>
-                            <div className="form-group">
-                              <textarea
-                                className="form-control form--control form-control-sm fs-13"
-                                name="message"
-                                rows={5}
-                                placeholder="Your comment here..."
-                                defaultValue={""}
-                              />
-                              <div className="d-flex flex-wrap align-items-center pt-2">
-                                <div className="badge bg-gray border border-gray mr-3 fw-regular fs-13">
-                                  [named hyperlinks] (https://example.com)
-                                </div>
-                                <div className="mr-3 fw-bold fs-13">
-                                  **bold**
-                                </div>
-                                <div className="mr-3 font-italic fs-13">
-                                  _italic_
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        {/* end col-lg-12 */}
-                        <div className="col-lg-12">
-                          <div className="input-box d-flex flex-wrap align-items-center justify-content-between">
-                            <div>
-                              <div className="custom-control custom-checkbox fs-13">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="getNewCommentsTwo"
-                                />
-                                <label
-                                  className="custom-control-label custom--control-label"
-                                  htmlFor="getNewCommentsTwo"
-                                >
-                                  Notify me of new comments vai email.
-                                </label>
-                              </div>
-                              <div className="custom-control custom-checkbox fs-13">
-                                <input
-                                  type="checkbox"
-                                  className="custom-control-input"
-                                  id="getNewPostsTwo"
-                                />
-                                <label
-                                  className="custom-control-label custom--control-label"
-                                  htmlFor="getNewPostsTwo"
-                                >
-                                  Notify me of new posts vai email.
-                                </label>
-                              </div>
-                            </div>
-                            <button
-                              className="btn theme-btn theme-btn-sm theme-btn-outline theme-btn-outline-gray"
-                              type="submit"
-                            >
-                              Post Comment
-                            </button>
-                          </div>
-                        </div>
-                        {/* end col-lg-12 */}
-                      </form>
-                    </div>
-                    {/* end collapse */}
-                  </div>
                 </div>
-                {/* end comments-wrap */}
               </div>
-              {/* end answer-body-wrap */}
             </div>
             {/* end answer-wrap */}
             <div className="subheader">
@@ -1695,60 +1023,7 @@ export default function QuestionDetail() {
                 <div className="divider">
                   <span />
                 </div>
-                <div className="sidebar-questions pt-3">
-                  <div className="media media-card media--card media--card-2">
-                    <div className="media-body">
-                      <h5>
-                        <a href="question-details.html">
-                          How to select the dom element with event.target
-                        </a>
-                      </h5>
-                      <small className="meta">
-                        <span className="pr-1">2 mins ago</span>
-                        <span className="pr-1">. by</span>
-                        <a href="#" className="author">
-                          Sudhir Kumbhare
-                        </a>
-                      </small>
-                    </div>
-                  </div>
-                  {/* end media */}
-                  <div className="media media-card media--card media--card-2">
-                    <div className="media-body">
-                      <h5>
-                        <a href="question-details.html">
-                          How can you cut an onion without crying?
-                        </a>
-                      </h5>
-                      <small className="meta">
-                        <span className="pr-1">48 mins ago</span>
-                        <span className="pr-1">. by</span>
-                        <a href="#" className="author">
-                          wimax
-                        </a>
-                      </small>
-                    </div>
-                  </div>
-                  {/* end media */}
-                  <div className="media media-card media--card media--card-2">
-                    <div className="media-body">
-                      <h5>
-                        <a href="question-details.html">
-                          How to change the behavior of dropdown buttons in HTML
-                        </a>
-                      </h5>
-                      <small className="meta">
-                        <span className="pr-1">1 hour ago</span>
-                        <span className="pr-1">. by</span>
-                        <a href="#" className="author">
-                          Antonin gavrel
-                        </a>
-                      </small>
-                    </div>
-                  </div>
-                  {/* end media */}
-                </div>
-                {/* end sidebar-questions */}
+               <RelatedQuestion/>
               </div>
             </div>
             {/* end card */}
@@ -1759,137 +1034,85 @@ export default function QuestionDetail() {
                   <span />
                 </div>
                 <div className="tags pt-4">
-                  <div className="tag-item">
-                    <a href="#" className="tag-link tag-link-md">
-                      analytics
-                    </a>
-                    <span className="item-multiplier fs-13">
-                      <span>×</span>
-                      <span>32924</span>
-                    </span>
-                  </div>
-                  {/* end tag-item */}
-                  <div className="tag-item">
-                    <a href="#" className="tag-link tag-link-md">
-                      computer
-                    </a>
-                    <span className="item-multiplier fs-13">
-                      <span>×</span>
-                      <span>32924</span>
-                    </span>
-                  </div>
-                  {/* end tag-item */}
-                  <div className="tag-item">
-                    <a href="#" className="tag-link tag-link-md">
-                      python
-                    </a>
-                    <span className="item-multiplier fs-13">
-                      <span>×</span>
-                      <span>32924</span>
-                    </span>
-                  </div>
-                  {/* end tag-item */}
-                  <div className="tag-item">
-                    <a href="#" className="tag-link tag-link-md">
-                      javascript
-                    </a>
-                    <span className="item-multiplier fs-13">
-                      <span>×</span>
-                      <span>32924</span>
-                    </span>
-                  </div>
-                  {/* end tag-item */}
-                  <div className="tag-item">
-                    <a href="#" className="tag-link tag-link-md">
-                      c#
-                    </a>
-                    <span className="item-multiplier fs-13">
-                      <span>×</span>
-                      <span>32924</span>
-                    </span>
-                  </div>
-                  {/* end tag-item */}
-                  <div className="collapse" id="showMoreTags">
-                    <div className="tag-item">
-                      <a href="#" className="tag-link tag-link-md">
-                        java
-                      </a>
-                      <span className="item-multiplier fs-13">
-                        <span>×</span>
-                        <span>32924</span>
-                      </span>
-                    </div>
-                    {/* end tag-item */}
-                    <div className="tag-item">
-                      <a href="#" className="tag-link tag-link-md">
-                        swift
-                      </a>
-                      <span className="item-multiplier fs-13">
-                        <span>×</span>
-                        <span>32924</span>
-                      </span>
-                    </div>
-                    {/* end tag-item */}
-                    <div className="tag-item">
-                      <a href="#" className="tag-link tag-link-md">
-                        html
-                      </a>
-                      <span className="item-multiplier fs-13">
-                        <span>×</span>
-                        <span>32924</span>
-                      </span>
-                    </div>
-                    {/* end tag-item */}
-                    <div className="tag-item">
-                      <a href="#" className="tag-link tag-link-md">
-                        angular
-                      </a>
-                      <span className="item-multiplier fs-13">
-                        <span>×</span>
-                        <span>32924</span>
-                      </span>
-                    </div>
-                    {/* end tag-item */}
-                    <div className="tag-item">
-                      <a href="#" className="tag-link tag-link-md">
-                        flutter
-                      </a>
-                      <span className="item-multiplier fs-13">
-                        <span>×</span>
-                        <span>32924</span>
-                      </span>
-                    </div>
-                    {/* end tag-item */}
-                    <div className="tag-item">
-                      <a href="#" className="tag-link tag-link-md">
-                        machine-language
-                      </a>
-                      <span className="item-multiplier fs-13">
-                        <span>×</span>
-                        <span>32924</span>
-                      </span>
-                    </div>
-                    {/* end tag-item */}
-                  </div>
-                  {/* end collapse */}
-                  <a
-                    className="collapse-btn fs-13"
-                    data-toggle="collapse"
-                    href="#showMoreTags"
-                    role="button"
-                    aria-expanded="false"
-                    aria-controls="showMoreTags"
-                  >
-                    <span className="collapse-btn-hide">
-                      Show more
-                      <i className="la la-angle-down ml-1 fs-11" />
-                    </span>
-                    <span className="collapse-btn-show">
-                      Show less
-                      <i className="la la-angle-up ml-1 fs-11" />
-                    </span>
-                  </a>
-                </div>
+                          <div className="tag-item">
+                            <a href="#" className="tag-link tag-link-md">
+                              analytics
+                            </a>
+                            <span className="item-multiplier fs-13">
+                              <span>×</span>
+                              <span>32924</span>
+                            </span>
+                          </div>
+                          {/* end tag-item */}
+                          <div className="tag-item">
+                            <a href="#" className="tag-link tag-link-md">
+                              computer
+                            </a>
+                            <span className="item-multiplier fs-13">
+                              <span>×</span>
+                              <span>32924</span>
+                            </span>
+                          </div>
+                          {/* end tag-item */}
+                          <div className="tag-item">
+                            <a href="#" className="tag-link tag-link-md">
+                              python
+                            </a>
+                            <span className="item-multiplier fs-13">
+                              <span>×</span>
+                              <span>32924</span>
+                            </span>
+                          </div>
+                          {/* end tag-item */}
+                          <div className="tag-item">
+                            <a href="#" className="tag-link tag-link-md">
+                              javascript
+                            </a>
+                            <span className="item-multiplier fs-13">
+                              <span>×</span>
+                              <span>32924</span>
+                            </span>
+                          </div>
+                          {/* end tag-item */}
+                          <div className="tag-item">
+                            <a href="#" className="tag-link tag-link-md">
+                              c#
+                            </a>
+                            <span className="item-multiplier fs-13">
+                              <span>×</span>
+                              <span>32924</span>
+                            </span>
+                          </div>
+                          {/* end tag-item */}
+                          <div className="collapse" id="showMoreTags">
+                            <div className="tag-item">
+                              <a href="#" className="tag-link tag-link-md">
+                                java
+                              </a>
+                              <span className="item-multiplier fs-13">
+                                <span>×</span>
+                                <span>32924</span>
+                              </span>
+                            </div>
+                          </div>
+                          <a
+                            className="collapse-btn fs-13"
+                            data-toggle="collapse"
+                            href="#showMoreTags"
+                            role="button"
+                            aria-expanded="false"
+                            aria-controls="showMoreTags"
+                          >
+                            <span className="collapse-btn-hide">
+                              Show more
+                              <i className="la la-angle-down ml-1 fs-11" />
+                            </span>
+                            <span className="collapse-btn-show">
+                              Show less
+                              <i className="la la-angle-up ml-1 fs-11" />
+                            </span>
+                          </a>
+                        </div>
               </div>
             </div>
             {/* end card */}
@@ -1901,141 +1124,16 @@ export default function QuestionDetail() {
                 <span className="ad-text">290x500</span>
               </div>
             </div>
-            {/* end ad-card */}
           </div>
-          {/* end sidebar */}
         </div>
-        {/* end col-lg-3 */}
       </div>
-      {/* end row */}
     </div>
-    {/* end container */}
   </section>
-  {/* end question-area */}
-  {/* ================================
-   END QUESTION AREA
-================================= */}
-  {/* ================================
-   END FOOTER AREA
-================================= */}
-  <section className="footer-area pt-80px bg-dark position-relative">
-    <span className="vertical-bar-shape vertical-bar-shape-1" />
-    <span className="vertical-bar-shape vertical-bar-shape-2" />
-    <span className="vertical-bar-shape vertical-bar-shape-3" />
-    <span className="vertical-bar-shape vertical-bar-shape-4" />
-    <div className="container">
-      <div className="row">
-        <div className="col-lg-3 responsive-column-half">
-          <div className="footer-item">
-            <h3 className="fs-18 fw-bold pb-2 text-white">Company</h3>
-            <ul className="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-              <li>
-                <a href="#">About</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-              <li>
-                <a href="#">Careers</a>
-              </li>
-              <li>
-                <a href="#">Advertising</a>
-              </li>
-            </ul>
-          </div>
-          {/* end footer-item */}
-        </div>
-        {/* end col-lg-3 */}
-        <div className="col-lg-3 responsive-column-half">
-          <div className="footer-item">
-            <h3 className="fs-18 fw-bold pb-2 text-white">Legal Stuff</h3>
-            <ul className="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-              <li>
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="#">Terms of Service</a>
-              </li>
-              <li>
-                <a href="#">Cookie Policy</a>
-              </li>
-            </ul>
-          </div>
-          {/* end footer-item */}
-        </div>
-        {/* end col-lg-3 */}
-        <div className="col-lg-3 responsive-column-half">
-          <div className="footer-item">
-            <h3 className="fs-18 fw-bold pb-2 text-white">Help</h3>
-            <ul className="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-              <li>
-                <a href="#">Knowledge Base</a>
-              </li>
-              <li>
-                <a href="#">Support</a>
-              </li>
-            </ul>
-          </div>
-          {/* end footer-item */}
-        </div>
-        {/* end col-lg-3 */}
-        <div className="col-lg-3 responsive-column-half">
-          <div className="footer-item">
-            <h3 className="fs-18 fw-bold pb-2 text-white">Connect with us</h3>
-            <ul className="generic-list-item generic-list-item-hover-underline pt-3 generic-list-item-white">
-              <li>
-                <a href="#">
-                  <i className="la la-facebook mr-1" /> Facebook
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="la la-twitter mr-1" /> Twitter
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="la la-linkedin mr-1" /> LinkedIn
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  <i className="la la-instagram mr-1" /> Instagram
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/* end footer-item */}
-        </div>
-        {/* end col-lg-3 */}
-      </div>
-      {/* end row */}
-    </div>
-    {/* end container */}
-    <hr className="border-top-gray my-5" />
-    <div className="container">
-      <div className="row align-items-center pb-4 copyright-wrap">
-        <div className="col-lg-6">
-          <a href="index.html" className="d-inline-block">
-            <img
-              src="images/logo-white.png"
-              alt="footer logo"
-              className="footer-logo"
-            />
-          </a>
-        </div>
-        {/* end col-lg-6 */}
-        <div className="col-lg-6">
-          <p className="copyright-desc text-right fs-14">
-            Copyright © 2021 <a href="https://techydevs.com/">TechyDevs</a> Inc.
-          </p>
-        </div>
-        {/* end col-lg-6 */}
-      </div>
-      {/* end row */}
-    </div>
-    {/* end container */}
-  </section>
+
+  {/* =======================   FOOTER AREA  ====================== */}
+
+  <Footer/>
+ 
 </>
 
         </>

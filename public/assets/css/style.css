@@ -2661,6 +2661,7 @@ body {
 
 /*======== generic-list-item-hover-underline ========*/
 .generic-list-item-hover-underline li a {
+  text-decoration: none;
   display: inline-block; }
   .generic-list-item-hover-underline li a::before {
     position: absolute;
