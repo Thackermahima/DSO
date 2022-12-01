@@ -11,6 +11,9 @@ import JobsOnHomeapge from './JobsHomePage';
 import TagsOnHomepage from './TagsHomepage';
 import UsersOnHomepage from './UserOnHome';
 import BadgesOnHomepage from './BadgesOnHome';
+import Cards from '../Cards';
+import NumberAchievement from '../NumberAchievement';
+import TrendingTags from '../TrendingTags';
 
 export default function Home() {
 
@@ -301,61 +304,7 @@ export default function Home() {
                 </div>
                 <div className="col-lg-3">
                   <div className="sidebar">
-                    <div className="card card-item">
-                      <div className="card-body">
-                        <h3 className="fs-17 pb-3">Number Achievement</h3>
-                        <div className="divider">
-                          <span />
-                        </div>
-                        <div className="row no-gutters text-center">
-                          <div className="col-lg-6 responsive-column-half">
-                            <div className="icon-box pt-3">
-                              <span className="fs-20 fw-bold text-color">980k</span>
-                              <p className="fs-14">Questions</p>
-                            </div>
-                            {/* end icon-box */}
-                          </div>
-                          {/* end col-lg-6 */}
-                          <div className="col-lg-6 responsive-column-half">
-                            <div className="icon-box pt-3">
-                              <span className="fs-20 fw-bold text-color-2">610k</span>
-                              <p className="fs-14">Answers</p>
-                            </div>
-                            {/* end icon-box */}
-                          </div>
-                          {/* end col-lg-6 */}
-                          <div className="col-lg-6 responsive-column-half">
-                            <div className="icon-box pt-3">
-                              <span className="fs-20 fw-bold text-color-3">650k</span>
-                              <p className="fs-14">Answer accepted</p>
-                            </div>
-                            {/* end icon-box */}
-                          </div>
-                          {/* end col-lg-6 */}
-                          <div className="col-lg-6 responsive-column-half">
-                            <div className="icon-box pt-3">
-                              <span className="fs-20 fw-bold text-color-4">320k</span>
-                              <p className="fs-14">Users</p>
-                            </div>
-                            {/* end icon-box */}
-                          </div>
-                          {/* end col-lg-6 */}
-                          <div className="col-lg-12 pt-3">
-                            <p className="fs-14">
-                              To get answer of question{" "}
-                              <a
-                                href="signup.html"
-                                className="text-color hover-underline"
-                              >
-                                Join
-                                <i className="la la-arrow-right ml-1" />
-                              </a>
-                            </p>
-                          </div>
-                        </div>
-                        {/* end row */}
-                      </div>
-                    </div>
+                    <NumberAchievement/>
                     <div className="card card-item">
                       <div className="card-body">
                         <h3 className="fs-17 pb-3">Related Questions</h3>
@@ -374,150 +323,13 @@ export default function Home() {
                         <TrendingQuestion />
                       </div>
                     </div>
-                    <div className="card card-item">
-                      <div className="card-body">
-                        <h3 className="fs-17 pb-3">Trending Tags</h3>
-                        <div className="divider">
-                          <span />
-                        </div>
-                        <div className="tags pt-4">
-                          <div className="tag-item">
-                            <a href="#" className="tag-link tag-link-md">
-                              analytics
-                            </a>
-                            <span className="item-multiplier fs-13">
-                              <span>×</span>
-                              <span>32924</span>
-                            </span>
-                          </div>
-                          {/* end tag-item */}
-                          <div className="tag-item">
-                            <a href="#" className="tag-link tag-link-md">
-                              computer
-                            </a>
-                            <span className="item-multiplier fs-13">
-                              <span>×</span>
-                              <span>32924</span>
-                            </span>
-                          </div>
-                          {/* end tag-item */}
-                          <div className="tag-item">
-                            <a href="#" className="tag-link tag-link-md">
-                              python
-                            </a>
-                            <span className="item-multiplier fs-13">
-                              <span>×</span>
-                              <span>32924</span>
-                            </span>
-                          </div>
-                          {/* end tag-item */}
-                          <div className="tag-item">
-                            <a href="#" className="tag-link tag-link-md">
-                              javascript
-                            </a>
-                            <span className="item-multiplier fs-13">
-                              <span>×</span>
-                              <span>32924</span>
-                            </span>
-                          </div>
-                          {/* end tag-item */}
-                          <div className="tag-item">
-                            <a href="#" className="tag-link tag-link-md">
-                              c#
-                            </a>
-                            <span className="item-multiplier fs-13">
-                              <span>×</span>
-                              <span>32924</span>
-                            </span>
-                          </div>
-                          {/* end tag-item */}
-                          <div className="collapse" id="showMoreTags">
-                            <div className="tag-item">
-                              <a href="#" className="tag-link tag-link-md">
-                                java
-                              </a>
-                              <span className="item-multiplier fs-13">
-                                <span>×</span>
-                                <span>32924</span>
-                              </span>
-                            </div>
-                          </div>
-                          <a
-                            className="collapse-btn fs-13"
-                            data-toggle="collapse"
-                            href="#showMoreTags"
-                            role="button"
-                            aria-expanded="false"
-                            aria-controls="showMoreTags"
-                          >
-                            <span className="collapse-btn-hide">
-                              Show more
-                              <i className="la la-angle-down ml-1 fs-11" />
-                            </span>
-                            <span className="collapse-btn-show">
-                              Show less
-                              <i className="la la-angle-up ml-1 fs-11" />
-                            </span>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
+                    <TrendingTags/>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-          <section className="get-started-area pt-80px pb-50px pattern-bg bg-gray">
-            <div className="container">
-              <div className="text-center">
-                <h2 className="section-title">
-                  Disilab Q&amp;A communities are different. <br /> Here's how
-                </h2>
-              </div>
-              <div className="row pt-50px">
-                <div className="col-lg-4 responsive-column-half">
-                  <div className="card card-item hover-y text-center">
-                    <div className="card-body">
-                      <img src="assets/images/bubble.png" alt="bubble" />
-                      <h5 className="card-title pt-4 pb-2">Expert communities.</h5>
-                      <p className="card-text">
-                        This is just a simple text made for this unique and awesome
-                        template, you can easily edit it as you want.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 responsive-column-half">
-                  <div className="card card-item hover-y text-center">
-                    <div className="card-body">
-                      <img src="assets/images/vote.png" alt="vote" />
-                      <h5 className="card-title pt-4 pb-2">
-                        The right answer. Right on top.
-                      </h5>
-                      <p className="card-text">
-                        This is just a simple text made for this unique and awesome
-                        template, you can easily edit it as you want.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="col-lg-4 responsive-column-half">
-                  <div className="card card-item hover-y text-center">
-                    <div className="card-body">
-                      <img src="assets/images/check.png" alt="check" />
-                      <h5 className="card-title pt-4 pb-2">
-                        Share knowledge. Earn trust.
-                      </h5>
-                      <p className="card-text">
-                        This is just a simple text made for this unique and awesome
-                        template, you can easily edit it as you want.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <Cards/>
 
           {/* -------------------------- Footer ---------------------- */}
           <Footer />

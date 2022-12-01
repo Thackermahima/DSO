@@ -1,22 +1,73 @@
 import React from 'react'
-import Footer from './Footer'
-import Header from './Header'
-import RelatedQuestion from './HomePage/RelatedQuestion'
+import Footer from '../Footer'
+import Header from '../Header'
+import RelatedQuestion from '../HomePage/RelatedQuestion'
+import NumberAchievement from '../NumberAchievement'
+import TrendingTags from '../TrendingTags'
+import FormControl from '@material-ui/core/FormControl';
+import NativeSelect from '@material-ui/core/NativeSelect';
+import InputBase from '@material-ui/core/InputBase';
+import InputLabel from '@material-ui/core/InputLabel';
+import Select from '@material-ui/core/Select';
+
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+
+
+
+const BootstrapInput = withStyles((theme) => ({
+  root: {
+    'label + &': {
+      marginTop: theme.spacing(3),
+    },
+  },
+  input: {
+    borderRadius: 4,
+    position: 'relative',
+    backgroundColor: theme.palette.background.paper,
+    border: '1px solid #ced4da',
+    fontSize: 16,
+    padding: '10px 26px 10px 12px',
+    transition: theme.transitions.create(['border-color', 'box-shadow']),
+    // Use the system font instead of the default Roboto font.
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+    '&:focus': {
+      borderRadius: 4,
+      borderColor: '#80bdff',
+      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
+    },
+  },
+}))(InputBase);
+
+const useStyles = makeStyles((theme) => ({
+  margin: {
+    margin: theme.spacing(1),
+  },
+}));
 
 
 export default function QuestionDetail() {
+
+  const classes = useStyles();
+  const [age, setAge] = React.useState('');
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
     return(
         <>
         <>
  
  <Header/>
-  {/* end header-area */}
-  {/*======================================
-  END HEADER AREA
-======================================*/}
-  {/*======================================
-  START HERO AREA
-======================================*/}
   <section className="hero-area bg-white shadow-sm overflow-hidden pt-40px pb-40px">
     <span className="stroke-shape stroke-shape-1" />
     <span className="stroke-shape stroke-shape-2" />
@@ -101,12 +152,6 @@ export default function QuestionDetail() {
     </div>
     {/* end container */}
   </section>
-  {/*======================================
-  END HERO AREA
-======================================*/}
-  {/* ================================
-   START QUESTION AREA
-================================= */}
   <section className="question-area pt-40px pb-40px">
     <div className="container">
       <div className="row">
@@ -255,78 +300,6 @@ export default function QuestionDetail() {
                 </div>
                 {/* end question-post-body */}
                 <div className="question-post-user-action">
-                  <div className="post-menu">
-                    <div className="btn-group">
-                      <button
-                        className="btn dropdown-toggle after-none"
-                        type="button"
-                        id="shareDropdownMenu"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Share
-                      </button>
-                      <div
-                        className="dropdown-menu dropdown--menu dropdown--menu-2 mt-2"
-                        aria-labelledby="shareDropdownMenu"
-                      >
-                        <div className="py-3 px-4">
-                          <h4 className="fs-15 pb-2">
-                            Share a link to this question
-                          </h4>
-                          <form action="#" className="copy-to-clipboard">
-                            <span className="text-success-message">
-                              Link Copied!
-                            </span>
-                            <input
-                              type="text"
-                              className="form-control form--control form-control-sm copy-input"
-                              defaultValue="https://Disilab.com/q/66552850/15319675"
-                            />
-                            <div className="btn-box pt-2 d-flex align-items-center justify-content-between">
-                              <a href="#" className="btn-text copy-btn">
-                                Copy link
-                              </a>
-                              <ul className="social-icons social-icons-sm">
-                                <li>
-                                  <a
-                                    href="#"
-                                    className="bg-8 text-white shadow-none"
-                                    title="Share link to this question on Facebook"
-                                  >
-                                    <i className="la la-facebook" />
-                                  </a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#"
-                                    className="bg-9 text-white shadow-none"
-                                    title="Share link to this question on Twitter"
-                                  >
-                                    <i className="la la-twitter" />
-                                  </a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#"
-                                    className="bg-dark text-white shadow-none"
-                                    title="Share link to this question on DEV"
-                                  >
-                                    <i className="lab la-dev" />
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="#" className="btn">
-                      Edit
-                    </a>
-                    <button className="btn">Follow</button>
-                  </div>
                   <div className="media media-card user-media owner align-items-center">
                     <a href="user-profile.html" className="media-img d-block">
                       <img src="images/img3.jpg" alt="avatar" />
@@ -530,18 +503,25 @@ export default function QuestionDetail() {
                 <h3 className="fs-16">1 Answer</h3>
               </div>
               {/* end subheader-title */}
-              <div className="subheader-actions d-flex align-items-center lh-1">
-                <label className="fs-13 fw-regular mr-1 mb-0">Order by</label>
-                <div className="w-100px">
-                  <select className="select-container">
-                    <option value="active">active</option>
-                    <option value="oldest">oldest</option>
-                    <option value="votes" selected="selected">
-                      votes
-                    </option>
-                  </select>
-                </div>
-              </div>
+              <FormControl variant="outlined" size="small" className={classes.formControl}>
+            <InputLabel  htmlFor="outlined-age-native-simple">Order by</InputLabel>
+            <Select  style={{paddingRight:"24px"}} 
+              native
+              // value={state.age}
+              onChange={handleChange}
+              label="Newest"
+              inputProps={{
+                name: 'Newest',
+                id: 'outlined-age-native-simple',
+              }}
+            >
+              <option aria-label="None" value="" />
+              <option value={1}>votes</option>
+              <option value={2}>Active</option>
+              <option value={3}>oldest</option>
+            
+            </Select>
+          </FormControl>
               {/* end subheader-actions */}
             </div>
             {/* end subheader */}
@@ -719,79 +699,7 @@ export default function QuestionDetail() {
                 </div>
                 {/* end answer-body */}
                 <div className="question-post-user-action">
-                  <div className="post-menu">
-                    <div className="btn-group">
-                      <button
-                        className="btn dropdown-toggle after-none"
-                        type="button"
-                        id="shareDropdownMenuTwo"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                      >
-                        Share
-                      </button>
-                      <div
-                        className="dropdown-menu dropdown--menu dropdown--menu-2 mt-2"
-                        aria-labelledby="shareDropdownMenuTwo"
-                      >
-                        <div className="py-3 px-4">
-                          <h4 className="fs-15 pb-2">
-                            Share a link to this question
-                          </h4>
-                          <form action="#" className="copy-to-clipboard">
-                            <span className="text-success-message">
-                              Link Copied!
-                            </span>
-                            <input
-                              type="text"
-                              className="form-control form--control form-control-sm copy-input"
-                              defaultValue="https://Disilab.com/q/66552850/15319675"
-                            />
-                            <div className="btn-box pt-2 d-flex align-items-center justify-content-between">
-                              <a href="#" className="btn-text copy-btn">
-                                Copy link
-                              </a>
-                              <ul className="social-icons social-icons-sm">
-                                <li>
-                                  <a
-                                    href="#"
-                                    className="bg-8 text-white shadow-none"
-                                    title="Share link to this question on Facebook"
-                                  >
-                                    <i className="la la-facebook" />
-                                  </a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#"
-                                    className="bg-9 text-white shadow-none"
-                                    title="Share link to this question on Twitter"
-                                  >
-                                    <i className="la la-twitter" />
-                                  </a>
-                                </li>
-                                <li>
-                                  <a
-                                    href="#"
-                                    className="bg-dark text-white shadow-none"
-                                    title="Share link to this question on DEV"
-                                  >
-                                    <i className="lab la-dev" />
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                    {/* btn-group */}
-                    <a href="#" className="btn">
-                      Edit
-                    </a>
-                    <button className="btn">Follow</button>
-                  </div>
+                  
                   {/* end post-menu */}
                   <div className="media media-card user-media align-items-center">
                     <a href="user-profile.html" className="media-img d-block">
@@ -921,61 +829,7 @@ export default function QuestionDetail() {
         {/* end col-lg-9 */}
         <div className="col-lg-3">
           <div className="sidebar">
-            <div className="card card-item">
-              <div className="card-body">
-                <h3 className="fs-17 pb-3">Number Achievement</h3>
-                <div className="divider">
-                  <span />
-                </div>
-                <div className="row no-gutters text-center">
-                  <div className="col-lg-6 responsive-column-half">
-                    <div className="icon-box pt-3">
-                      <span className="fs-20 fw-bold text-color">980k</span>
-                      <p className="fs-14">Questions</p>
-                    </div>
-                    {/* end icon-box */}
-                  </div>
-                  {/* end col-lg-6 */}
-                  <div className="col-lg-6 responsive-column-half">
-                    <div className="icon-box pt-3">
-                      <span className="fs-20 fw-bold text-color-2">610k</span>
-                      <p className="fs-14">Answers</p>
-                    </div>
-                    {/* end icon-box */}
-                  </div>
-                  {/* end col-lg-6 */}
-                  <div className="col-lg-6 responsive-column-half">
-                    <div className="icon-box pt-3">
-                      <span className="fs-20 fw-bold text-color-3">650k</span>
-                      <p className="fs-14">Answer accepted</p>
-                    </div>
-                    {/* end icon-box */}
-                  </div>
-                  {/* end col-lg-6 */}
-                  <div className="col-lg-6 responsive-column-half">
-                    <div className="icon-box pt-3">
-                      <span className="fs-20 fw-bold text-color-4">320k</span>
-                      <p className="fs-14">Users</p>
-                    </div>
-                    {/* end icon-box */}
-                  </div>
-                  {/* end col-lg-6 */}
-                  <div className="col-lg-12 pt-3">
-                    <p className="fs-14">
-                      To get answer of question{" "}
-                      <a
-                        href="signup.html"
-                        className="text-color hover-underline"
-                      >
-                        Join
-                        <i className="la la-arrow-right ml-1" />
-                      </a>
-                    </p>
-                  </div>
-                </div>
-                {/* end row */}
-              </div>
-            </div>
+          <NumberAchievement/>
             {/* end card */}
             <div className="card card-item">
               <div className="card-body">
@@ -1027,103 +881,7 @@ export default function QuestionDetail() {
               </div>
             </div>
             {/* end card */}
-            <div className="card card-item">
-              <div className="card-body">
-                <h3 className="fs-17 pb-3">Trending Tags</h3>
-                <div className="divider">
-                  <span />
-                </div>
-                <div className="tags pt-4">
-                          <div className="tag-item">
-                            <a href="#" className="tag-link tag-link-md">
-                              analytics
-                            </a>
-                            <span className="item-multiplier fs-13">
-                              <span>×</span>
-                              <span>32924</span>
-                            </span>
-                          </div>
-                          {/* end tag-item */}
-                          <div className="tag-item">
-                            <a href="#" className="tag-link tag-link-md">
-                              computer
-                            </a>
-                            <span className="item-multiplier fs-13">
-                              <span>×</span>
-                              <span>32924</span>
-                            </span>
-                          </div>
-                          {/* end tag-item */}
-                          <div className="tag-item">
-                            <a href="#" className="tag-link tag-link-md">
-                              python
-                            </a>
-                            <span className="item-multiplier fs-13">
-                              <span>×</span>
-                              <span>32924</span>
-                            </span>
-                          </div>
-                          {/* end tag-item */}
-                          <div className="tag-item">
-                            <a href="#" className="tag-link tag-link-md">
-                              javascript
-                            </a>
-                            <span className="item-multiplier fs-13">
-                              <span>×</span>
-                              <span>32924</span>
-                            </span>
-                          </div>
-                          {/* end tag-item */}
-                          <div className="tag-item">
-                            <a href="#" className="tag-link tag-link-md">
-                              c#
-                            </a>
-                            <span className="item-multiplier fs-13">
-                              <span>×</span>
-                              <span>32924</span>
-                            </span>
-                          </div>
-                          {/* end tag-item */}
-                          <div className="collapse" id="showMoreTags">
-                            <div className="tag-item">
-                              <a href="#" className="tag-link tag-link-md">
-                                java
-                              </a>
-                              <span className="item-multiplier fs-13">
-                                <span>×</span>
-                                <span>32924</span>
-                              </span>
-                            </div>
-                          </div>
-                          <a
-                            className="collapse-btn fs-13"
-                            data-toggle="collapse"
-                            href="#showMoreTags"
-                            role="button"
-                            aria-expanded="false"
-                            aria-controls="showMoreTags"
-                          >
-                            <span className="collapse-btn-hide">
-                              Show more
-                              <i className="la la-angle-down ml-1 fs-11" />
-                            </span>
-                            <span className="collapse-btn-show">
-                              Show less
-                              <i className="la la-angle-up ml-1 fs-11" />
-                            </span>
-                          </a>
-                        </div>
-              </div>
-            </div>
-            {/* end card */}
-            <div className="ad-card">
-              <h4 className="text-gray text-uppercase fs-13 pb-3 text-center">
-                Advertisements
-              </h4>
-              <div className="ad-banner mb-4 mx-auto">
-                <span className="ad-text">290x500</span>
-              </div>
-            </div>
+            <TrendingTags/>
           </div>
         </div>
       </div>
