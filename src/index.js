@@ -3,12 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { CodesterContextProvider } from './component/Context/Context';
+import { StyledEngineProvider } from '@mui/material/styles';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <CodesterContextProvider>
   <React.StrictMode>
+  <StyledEngineProvider injectFirst>
     <App />
+  </StyledEngineProvider>
+
   </React.StrictMode>
+  </CodesterContextProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

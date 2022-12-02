@@ -9,11 +9,18 @@ import NativeSelect from '@material-ui/core/NativeSelect';
 import InputBase from '@material-ui/core/InputBase';
 import InputLabel from '@material-ui/core/InputLabel';
 import Select from '@material-ui/core/Select';
-
+import { CodesterContext } from '../../Context/Context';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { AbortedDeferredError } from 'react-router-dom';
+import * as PushAPI from "@pushprotocol/restapi";
+import * as ethers from "ethers";
+import { api, utils } from "@epnsproject/frontend-sdk-staging";
 
 
-
+const PK = 'e31579bb5f73ac829cee6ad07e4c5f68a9a332e5510c210eb408441c2bc144cf'; // channel private key
+const Pkey = `0x${PK}`;
+const signer = new ethers.Wallet(Pkey);
+// export const CodesterContext = createContext();
   const BootstrapInput = withStyles((theme) => ({
     root: {
       'label + &': {
@@ -65,6 +72,41 @@ export default function AskQuestion() {
     setAge(event.target.value);
   };
 
+  // const codesterContext = React.useContext(CodesterContext);
+  // const { sendNotification } = codesterContext;
+let title = 'Question added';
+let msg = "New question added help it out"
+
+
+ const sendNotification = async () => {
+      console.log('send notification called...');
+        try {
+            const apiResponse = await PushAPI.payloads.sendNotification({
+                signer,
+                type: 1,
+                identityType: 2,
+                notification: {
+                    title: `[SDK-TEST] notification TITLE:`,
+                    body: `[sdk-test] notification BODY`
+                },
+                payload: {
+                    title: 'Question added!',
+                    body: 'New question addes help it out.',
+                    cta: '',
+                    img: ''
+
+                },
+                // recipients: recipient, // recipient address
+                channel: '0xE9B4b5985fa998516A58D9449Fe53048f0Dd33aB', // your channel address
+                env: 'staging'
+            });
+            console.log(apiResponse, 'api response');
+
+        } catch (err) {
+            console.error(err);
+        }
+ }
+
   return (
     <>
       <>
@@ -96,7 +138,7 @@ export default function AskQuestion() {
             <div className="row">
               <div className="col-lg-8">
                 <div className="card card-item">
-                  <form method="post" className="card-body">
+                  <div method="post" className="card-body">
                     <div className="input-box">
                       <label className="fs-14 text-black fw-medium mb-0">
                         Question Title
@@ -269,12 +311,14 @@ export default function AskQuestion() {
                         </div>
                       </div>
                       <div className="btn-box">
-                        <button type="submit" className="btn theme-btn">
+                        <button 
+                        onClick={sendNotification} 
+                        className="btn theme-btn">
                           Publish your question
                         </button>
                       </div>
                     </div>
-                  </form>
+                  </div>
                 </div>
               </div>
               <RightNav />
