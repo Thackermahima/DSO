@@ -2,21 +2,24 @@ import React from "react";
 import { useState } from 'react';
 import { api, utils } from "@epnsproject/frontend-sdk-staging";
 import { Button, Popover, Typography } from "@material-ui/core";
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+// import {NotificationsNoneIcon} from '@mui/icons-material';
 import { storiesOf } from '@storybook/react'
 import centered from '@storybook/addon-centered/react'
 // import { ToggleBox } from './ToggleBox'
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import {Menu} from '@mui/material';
+import {MenuItem} from '@mui/material';
 import WorldCoin from "./WorldCoinLogin";
+import {LoginContext} from '../Context/LoginContext';
+import { Link } from "react-router-dom";
 export default function Header() {
 
   const ethers = require("ethers");
   const [domain, setDomain] = useState("Connect");
   const [notificationItems, setNotificationItems] = useState();
   const [anchorEl, setAnchorEl] = useState(null);
-
-
+ 
+const loginContext = React.useContext(LoginContext);
+const { web3Handler,accountss } = loginContext;
   async function fetchNotifications(recipient) {
     console.log(recipient, 'reci');
     // define the variables required to make a request
@@ -126,6 +129,17 @@ export default function Header() {
                     <a href="#">
                       pages <i className="la la-angle-down fs-11" />
                     </a>
+                    <ul className="dropdown-menu-item">
+                      <li>
+                      <Link to="/nft-upload">
+                      Create NFT
+                      </Link>
+                      </li>
+                      <li>
+                        <a href="home-2.html">NFT Club</a>
+                      </li>
+                    
+                    </ul>
 
                   </li>
                   <li>
@@ -170,6 +184,17 @@ export default function Header() {
                       <li>
                         <WorldCoin/>
                       </li>
+                      {
+                        accountss ? (
+                        <Button variant="outline-light">
+                                    {accountss.slice(0, 5) + '...' + accountss.slice(38, 42)}
+                                </Button>
+
+                      ) : (
+                      <li onClick={() => web3Handler()}>
+                                        Login with Metamask
+                      </li>
+                      )}
                     </ul>
                   </li>
                 </ul>

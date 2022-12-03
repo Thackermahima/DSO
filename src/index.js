@@ -5,6 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CodesterContextProvider } from './component/Context/Context';
 import { StyledEngineProvider } from '@mui/material/styles';
+import { BrowserRouter } from 'react-router-dom';
+import {LoginContextProvider} from './component/Context/LoginContext'
+import { StoreDataContextProvider } from './component/Context/StoreDataContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -12,7 +15,13 @@ root.render(
   <CodesterContextProvider>
   <React.StrictMode>
   <StyledEngineProvider injectFirst>
+  <LoginContextProvider>
+  <StoreDataContextProvider>
+  <BrowserRouter>
     <App />
+    </BrowserRouter>
+    </StoreDataContextProvider>
+    </LoginContextProvider>
   </StyledEngineProvider>
 
   </React.StrictMode>
