@@ -18,7 +18,7 @@ const UploadFormNFT = () => {
    
 
 const storeDataContext = React.useContext(StoreDataContext);
-  const { addData, storeFiles, NewData} = storeDataContext;
+  const { addData, storeFiles, NewData, addDataToIPFS} = storeDataContext;
   // const { Moralis } = useMoralis();
   // const getnftData = Moralis.Object.extend("nftMetadata");
   // const nftData = new getnftData();
@@ -40,24 +40,24 @@ const storeDataContext = React.useContext(StoreDataContext);
                await ethereum.enable();
            } catch (error) {}
     });
-  const projectId = process.env.REACT_APP_INFURA_PROJECT_KEY;
-  const projectSecret = process.env.REACT_APP_INFURA_APP_SECRET_KEY;
-  const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
-  const ifpsConfig = {
-    host: 'ipfs.infura.io',
-    port: 5001,
-    protocol: 'https',
-    headers: {
-      authorization: auth,
-    },
-  };
-  const ipfs = create(ifpsConfig);
-  const addDataToIPFS = async (metadata) => {
-    const ipfsHash = await ipfs.add(metadata);
-    console.log(ipfsHash.cid, "IPFSHash cid");
-    console.log(ipfsHash.path, "IPFSHash path");
-    return ipfsHash.path;
-  };
+  // const projectId = process.env.REACT_APP_INFURA_PROJECT_KEY;
+  // const projectSecret = process.env.REACT_APP_INFURA_APP_SECRET_KEY;
+  // const auth = 'Basic ' + Buffer.from(projectId + ':' + projectSecret).toString('base64');
+  // const ifpsConfig = {
+  //   host: 'ipfs.infura.io',
+  //   port: 5001,
+  //   protocol: 'https',
+  //   headers: {
+  //     authorization: auth,
+  //   },
+  // };
+  //const ipfs = create(ifpsConfig);
+  // const addDataToIPFS = async (metadata) => {
+  //   const ipfsHash = await ipfs.add(metadata);
+  //   console.log(ipfsHash.cid, "IPFSHash cid");
+  //   console.log(ipfsHash.path, "IPFSHash path");
+  //   return ipfsHash.path;
+  // };
   const createSvgFromText = (text) => {
     const imgSVG = (
       <svg
@@ -122,6 +122,7 @@ const storeDataContext = React.useContext(StoreDataContext);
       // let tokenContractAddress = event?.address;
       let tokenContractAddress = event.args[1];
       let userAdd = localStorage.getItem("currentUserAddress")
+      localStorage.setItem("tokenContractAddress", tokenContractAddress);
       // nftData.set("tokenContractAddress", tokenContractAddress);
       // nftData.set("CurrentUser", userAdd);
       //let userAdd = event.args[0]
@@ -156,7 +157,8 @@ const storeDataContext = React.useContext(StoreDataContext);
         console.log(ipfsHash, "ipfsHash from addDataToIPFS function");
         const imageUrl = `https://ipfs.io/ipfs/${ipfsHash}`;
         //console.log(imageUrl,"imageUrl");
-        imageArr.push({ imageUrl: imageUrl, tokenId: tokenId.toString(), sold: false });
+        const imageData = { imageUrl: imageUrl, tokenId: tokenId.toString(), sold: false }
+        imageArr.push(imageData);
         setImgArr(imageArr);
         console.log(imgArr,"imgArr");
         let Item = {
@@ -168,6 +170,21 @@ const storeDataContext = React.useContext(StoreDataContext);
       
         };
         storeFiles(Item)
+        localStorage.setItem("name", name);
+        localStorage.setItem("tokenPrice", tokenPrice);
+        localStorage.setItem("tokenQuantity", tokenQuantity);
+        localStorage.setItem("symbol", symbol);
+        localStorage.setItem("imageArrss", JSON.stringify(imageData));
+        localStorage.setItem("imageArr", imageArr);
+        localStorage.setItem("imageUrls", imageUrl);
+
+
+
+
+
+
+
+
 console.log(Item, "Items in Submit");
         // nftData.set("name", name);
         // nftData.set("symbol", symbol);

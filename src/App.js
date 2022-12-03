@@ -8,7 +8,9 @@ import BasicPopover from './component/pages/Notification';
 import WorldCoin from './component/pages/WorldCoinLogin';
 import UploadFormNFT from './component/pages/UploadFormNFT';
 import { Routes, Route } from 'react-router-dom';
-
+import NftReadership from './component/pages/NFTClub/NftReadership';
+import PushChat from './component/pages/pushchat/PushChat';
+// import NftReadershipDetail from './component/pages/NFTClub/NftReadershipDetail';
 function App() {
   return (
     <div className="App">
@@ -20,8 +22,10 @@ function App() {
 <Route path="/nft-upload" element={<UploadFormNFT />} />
 <Route exact path="/" element={<Home />} />
 
-{/* <Route path="/readership-nft" element={<NftReadership />} />
-<Route path="/readership-nft-detail/:address" element={<NftReadershipDetail />} /> */}
+<Route path="/readership-nft" element={<NftReadership />} />
+<Route path="/pushchat" element={<PushChat />} />
+
+{/* <Route path="/readership-nft-detail/:address" element={<NftReadershipDetail />} /> */}
 
 </Routes>
     </div>

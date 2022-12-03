@@ -13,12 +13,14 @@ export const LoginContextProvider = (props) => {
         const accountses = await window.ethereum.request({ method: 'eth_requestAccounts'});
            console.log(window.ethereum,"2");
         console.log(window.ethereum,"2");
+        localStorage.setItem("userAddress", accountses[0]);
         setAccounts(accountses[0])
           const provider = new ethers.providers.Web3Provider(window.ethereum)
           console.log(window.ethereum,"3");
             const signer = provider.getSigner()
          
         }
+        console.log(accountss, 'accounts');
       }
         
 

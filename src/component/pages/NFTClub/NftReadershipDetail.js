@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Avatar from 'react-avatar';
-import { useMoralis, useMoralisQuery } from "react-moralis";
 import { useParams } from 'react-router-dom';
 import { mintParentContract } from "../config";
 import ContractABI from "../abi/mintContractParent.json";
@@ -13,7 +12,7 @@ import EpnsSDK from "@epnsproject/backend-sdk-staging";
 function NftReadershipDetail({ symbol }) {
   const { address } = useParams()
   console.log(address, 'address in NFT detail');
-  const { Moralis, isInitialized } = useMoralis();
+  //const { Moralis, isInitialized } = useMoralis();
   let results = [];
   const [resultData, setResultData] = useState([]);
   const [imageURls, setImageURLs] = useState([]);
@@ -21,7 +20,7 @@ function NftReadershipDetail({ symbol }) {
   const [tokenAddress, setTokenAddress] = useState();
   const [authorData, setAuthorData] = useState();
   const [authorNAME, setAuthorName] = useState();
-  const getSoldData = Moralis.Object.extend("soldItems");
+  //const getSoldData = Moralis.Object.extend("soldItems");
   const [AllTokenIds, setAllTokenIds] = useState()
   // -------covalent API -----------------
   useEffect(() => {
@@ -40,43 +39,44 @@ function NftReadershipDetail({ symbol }) {
       })
   }, [])
   // -------covalent API -----------------
-  const solditems = new getSoldData();
+  //const solditems = new getSoldData();
   let images = [];
   let Items = [];
   let addresses;
   let authorname;
   useEffect(() => {
     const getAuthorCollection = async () => {
-      const storyPad = Moralis.Object.extend("nftMetadata");
-      const query = new Moralis.Query(storyPad);
-      query.equalTo("tokenContractAddress", address);
-      const objects = await query.find()
-      results.push(objects);
-      setResultData(results)
-      results.map((obj) => {
-        setAuthorData(obj[0].attributes);
-        images = obj[0].attributes.imageArr;
-        addresses = obj[0].attributes.tokenContractAddress;
-        authorname = obj[0].attributes.authorName;
-        setTokenAddress(addresses);
-        setAuthorName(authorname);
-      });
-      const queries = new Moralis.Query(getSoldData);
-      queries.equalTo("tokenAddress", addresses);
-      const ItemData = await queries.find();
-      Items.push(ItemData);
-      console.log(Items, "items fron storyItems");
-      images.map((obj) => {
-        let find =
-          Items.length > 0 &&
-          Items[0].some((item) => item.attributes.tokenId == obj.tokenId);
-        if (find) {
-          obj.sold = true;
-        } else {
-          obj.sold = false;
-        }
-      });
-      setImageURLs(images);
+      
+      // const storyPad = Moralis.Object.extend("nftMetadata");
+      // const query = new Moralis.Query(storyPad);
+      // query.equalTo("tokenContractAddress", address);
+      // const objects = await query.find()
+      // results.push(objects);
+      // setResultData(results)
+      // results.map((obj) => {
+      //   setAuthorData(obj[0].attributes);
+      //   images = obj[0].attributes.imageArr;
+      //   addresses = obj[0].attributes.tokenContractAddress;
+      //   authorname = obj[0].attributes.authorName;
+      //   setTokenAddress(addresses);
+      //   setAuthorName(authorname);
+      // });
+      // const queries = new Moralis.Query(getSoldData);
+      // queries.equalTo("tokenAddress", addresses);
+      // const ItemData = await queries.find();
+      // Items.push(ItemData);
+      // console.log(Items, "items fron storyItems");
+      // images.map((obj) => {
+      //   let find =
+      //     Items.length > 0 &&
+      //     Items[0].some((item) => item.attributes.tokenId == obj.tokenId);
+      //   if (find) {
+      //     obj.sold = true;
+      //   } else {
+      //     obj.sold = false;
+      //   }
+      // });
+      // setImageURLs(images);
     }
     if (isInitialized) {
       getAuthorCollection()

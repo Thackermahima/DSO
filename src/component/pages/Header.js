@@ -136,11 +136,17 @@ const { web3Handler,accountss } = loginContext;
                       </Link>
                       </li>
                       <li>
-                        <a href="home-2.html">NFT Club</a>
+                      <Link to="/readership-nft">
+                        NFT Club
+                        </Link>
                       </li>
-                    
-                    </ul>
+                      <li>
+                      <Link to="/pushchat">
+                        Chat
+                        </Link>
+                      </li>
 
+                    </ul>
                   </li>
                   <li>
                     <a href="#">
